@@ -32,6 +32,6 @@ include { basecalling_wf } from './workflows/basecalling.nf'
 
 workflow {
     // basecalling
-      wf_basecalling(pod5_input_ch, ch_models)
+      basecalling_wf(pod5_input_ch, ch_models)
 
 }

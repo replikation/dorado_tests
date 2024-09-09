@@ -1,4 +1,4 @@
-process dorado_gpu {
+process dorado {
         executor = 'local'
         label 'dorado'
         storeDir "${params.output}/${name}/${name}_${models[0]}/"

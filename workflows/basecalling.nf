@@ -1,14 +1,14 @@
-include { dorado_gpu } from './process/dorado_gpu'
+include { dorado } from './process/dorado'
 
 
 
-workflow wf_basecalling_dorado {
+workflow basecalling_wf {
     take: pod5_dir
           ch_models
 
     main:
-            dorado_gpu(pod5_dir, ch_models)
+            dorado(pod5_dir, ch_models)
 
 
-    emit:   dorado_gpu.out
+    emit:   dorado.out
 }
