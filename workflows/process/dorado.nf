@@ -7,7 +7,7 @@ process dorado {
         tuple val(name), path(pod5)
         each (models)
     output:
-        tuple val(name), val(models), path("${name}_${models[0]}.fastq.gz"), emit: reads
+        tuple val(name), val(models), path("${name}_${models[0]}.fastq"), emit: reads
     script:
         """
         dorado download --model ${models[1]}
