@@ -19,6 +19,6 @@ process dorado {
 
     stub:
     """
-    touch ${name}_${models[0]}.fastq.gz
+    touch ${name}_${models[0]}.fastq
     """
 }
