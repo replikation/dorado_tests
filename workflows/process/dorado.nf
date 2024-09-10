@@ -11,11 +11,10 @@ process dorado {
     script:
         """
         dorado download --model ${models[1]}
-        mv ${models[1]} 1_model
 
         mkdir -p pod5_dir
         mv ${pod5} pod5_dir/
-        dorado basecaller --device cuda:all -r --emit-fastq 1_model/ pod5_dir > ${name}_${models[0]}.fastq
+        dorado basecaller --device cuda:all -r --emit-fastq ${models[1]} pod5_dir > ${name}_${models[0]}.fastq
         
         # reduce foodprint
         rm -r 1_model
