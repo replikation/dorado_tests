@@ -12,7 +12,7 @@ process dorado {
         """
         dorado download --model ${models[1]}
         mv ${models[1]} 1_model
-        dorado basecaller --device cuda:all -r --emit-fastq 1_model/ ${dir} | gzip > ${name}_${models[0]}.fastq.gz
+        dorado basecaller --device cuda:all -r --emit-fastq 1_model/ ${dir} > ${name}_${models[0]}.fastq
         
         # reduce foodprint
         rm -r 1_model
