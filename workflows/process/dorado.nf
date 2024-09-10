@@ -4,7 +4,7 @@ process dorado {
         maxForks 1
         storeDir "${params.output}/${name}/${name}_${models[0]}/"
     input:
-        tuple val(name), path(dir)
+        tuple val(name), path(pod5)
         each (models)
     output:
         tuple val(name), val(models), path("${name}_${models[0]}.fastq.gz"), emit: reads
@@ -12,7 +12,10 @@ process dorado {
         """
         dorado download --model ${models[1]}
         mv ${models[1]} 1_model
-        dorado basecaller --device cuda:all -r --emit-fastq 1_model/ ${dir} > ${name}_${models[0]}.fastq
+
+        mkdir -p pod5_dir
+        mv ${pod5} pod5_dir/
+        dorado basecaller --device cuda:all -r --emit-fastq 1_model/ pod5_dir > ${name}_${models[0]}.fastq
         
         # reduce foodprint
         rm -r 1_model
