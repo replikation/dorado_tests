@@ -15,9 +15,6 @@ process dorado {
         mkdir -p pod5_dir
         mv ${pod5} pod5_dir/
         dorado basecaller --device cuda:all -r --emit-fastq ${models[1]} pod5_dir > ${name}_${models[0]}.fastq
-        
-        # reduce foodprint
-        rm -r 1_model
         """
 
     stub:
